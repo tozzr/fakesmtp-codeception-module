@@ -6,7 +6,7 @@ modules:
     - FakeSmtp
   config:
     FakeSmtp
-      mail-dir: /home/me/my/fake/mail/dir
+      dir: /home/me/my/fake/mail/dir
 ```
 
 functions:

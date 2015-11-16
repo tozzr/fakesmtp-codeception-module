@@ -6,8 +6,8 @@ use Codeception\Module;
 
 class FakeSmtp extends Module
 {
-  protected $config = array('dir');
-  
+  protected $config = array('dir' => '/home');
+
   protected $requiredFields = ['dir'];
 
   public function _initialize()
@@ -16,16 +16,17 @@ class FakeSmtp extends Module
 
   function resetEmails()
   {
-    $this->cleanDir($this->config['dir']);
+    $this->getModule('Filesystem')->cleanDir($this->config['dir']);
   }
 
   function seeInLastEmail($str)
   {
+    $fs = $this->getModule('Filesystem');
     if ($handle = opendir($this->config['dir'])) {
         while (false !== ($entry = readdir($handle))) {
           if ($entry != "." && $entry != "..") {
-            $this->openFile($this->config['dir'] . "/" . $entry);
-            $this->seeInThisFile($str);
+            $fs->openFile($this->config['dir'] . "/" . $entry);
+            $fs->seeInThisFile($str);
           }
         }
         closedir($handle);
