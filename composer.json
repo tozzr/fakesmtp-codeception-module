@@ -1,0 +1,11 @@
+{
+    "name": "tozzr/fakesmtp-codeception-module",
+    "description": "Test email sending in your codeception tests",
+    "authors": [
+        {
+            "name": "Torsten Hein",
+            "email": "mail@tozzr.com"
+        }
+    ],
+    "require": {}
+}
