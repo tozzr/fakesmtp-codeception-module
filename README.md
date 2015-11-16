@@ -4,6 +4,8 @@
 modules:
   enabled:
     - FakeSmtp
+  config:
+    FakeSmtp
       mail-dir: /home/me/my/fake/mail/dir
 ```
 
