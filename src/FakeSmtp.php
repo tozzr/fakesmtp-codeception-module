@@ -9,15 +9,15 @@ class FakeSmtp extends Module
 
   function resetEmails()
   {
-    $this->cleanDir($this->dir);
+    $this->cleanDir($this->config['dir']);
   }
 
   function seeInLastEmail($str)
   {
-    if ($handle = opendir($this->dir)) {
+    if ($handle = opendir($this->config['dir'])) {
         while (false !== ($entry = readdir($handle))) {
           if ($entry != "." && $entry != "..") {
-            $this->openFile($this->dir . "/" . $entry);
+            $this->openFile($this->config['dir'] . "/" . $entry);
             $this->seeInThisFile($str);
           }
         }
