@@ -6,6 +6,13 @@ use Codeception\Module;
 
 class FakeSmtp extends Module
 {
+  protected $config = array('dir');
+  
+  protected $requiredFields = ['dir'];
+
+  public function _initialize()
+  {
+  }
 
   function resetEmails()
   {
