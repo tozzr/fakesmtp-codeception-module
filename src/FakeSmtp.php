@@ -27,10 +27,12 @@ class FakeSmtp extends Module
           if ($entry != "." && $entry != "..") {
             $fs->openFile($this->config['dir'] . "/" . $entry);
             $fs->seeInThisFile($str);
+            return;
           }
         }
         closedir($handle);
     }
+    $this->fail('no email found in "' . $this->config['dir'] . '"');
   }
 
 }
